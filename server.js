@@ -15,6 +15,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// ✅ Root route (Fixes 'Cannot GET /')
+app.get("/", (req, res) => {
+  res.send("<h2>🚀 SlotSwapper API is live and running successfully!</h2>");
+});
+
+
 // quick logger to see incoming requests (temporary)
 app.use((req, res, next) => {
   console.log("➡", req.method, req.path);
